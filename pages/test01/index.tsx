@@ -1,3 +1,9 @@
+import TestComponent from '../component/TestComponent';
+
 export default function Test01() {
-  return <div>Test01</div>;
+  return (
+    <div>
+      <TestComponent />
+    </div>
+  );
 }
