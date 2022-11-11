@@ -6,7 +6,6 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   return (
     <>
-      <Box>asd123</Box>
       <SubmitBtn variant="contained" type="button" color="error">
         <Typography>ONE</Typography>
       </SubmitBtn>
@@ -19,5 +18,5 @@ export default function Home() {
 const SubmitBtn = styled(Button)`
   width: 60px;
   height: 30px;
-  margin: 0 0 0 5px;
+  margin: 5px 0 0 5px;
 `;
