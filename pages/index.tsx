@@ -7,7 +7,7 @@ export default function Home() {
   console.log('testProps : ', testProps);
 
   return (
-    <>
+    <Box>
       <SubmitBtn variant="contained" type="button" color="error">
         <Link href={'/test01'} as={'tost01'}>
           <Typography>ONE</Typography>
@@ -18,7 +18,7 @@ export default function Home() {
           <Typography>TWO</Typography>
         </Link>
       </SubmitBtn>
-    </>
+    </Box>
   );
 }
 
