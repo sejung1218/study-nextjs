@@ -6,6 +6,8 @@ export default function Home() {
 
   console.log('testProps : ', testProps);
 
+  // setting complete
+
   return (
     <>
       <SubmitBtn variant="contained" type="button" color="error">
