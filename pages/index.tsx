@@ -1,12 +1,9 @@
-import { Box, Button, styled, Typography } from "@mui/material";
-import Link from "next/link";
+import { Button, styled, Typography } from "@mui/material";
+import { Container } from "@mui/system";
 import Router from "next/router";
-import { kakaoInit } from "./kakao";
+import { kakaoInit } from "./kakaoInit";
 
 export default function Home() {
-  // const testProps = 'TEST_MESSAGE';
-  // console.log('testProps : ', testProps);
-
   const kakaoLogin = async () => {
     // 카카오 초기화
     const kakao = kakaoInit();
@@ -33,23 +30,25 @@ export default function Home() {
   // setting complete
 
   return (
-    <>
-      <SubmitBtn variant="contained" type="button" color="error">
-        <Link href={"/test01"} as={"tost01"}>
-          <Typography>ONE</Typography>
-        </Link>
-      </SubmitBtn>
-      <SubmitBtn variant="contained" type="button" color="secondary">
-        <Link href={"/test02"} as={"tost02"}>
-          <Typography>TWO</Typography>
-        </Link>
-      </SubmitBtn>
-    </>
+    <LoginContainer>
+      <LoginBtn onClick={kakaoLogin}>
+        <Typography style={{ fontSize: "2rem" }}>KAKAO Login</Typography>
+      </LoginBtn>
+    </LoginContainer>
   );
 }
 
-const SubmitBtn = styled(Button)`
-  width: 60px;
-  height: 30px;
-  margin: 5px 0 0 5px;
+const LoginContainer = styled(Container)`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+`;
+
+const LoginBtn = styled(Button)`
+  border: 1px solid black;
+  width: 260px;
+  height: 130px;
+  background-color: yellow;
+  color: black;
 `;
