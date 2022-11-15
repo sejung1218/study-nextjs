@@ -1,13 +1,9 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import TestComponent from "./component/TestComponent";
 import Head from "next/head";
 import * as React from "react";
 
 export default function App({ Component, pageProps }: AppProps) {
-  // export default function App() {
-  // return <div>Hello</div>;
-
   return (
     <div>
       <Head>
@@ -16,5 +12,4 @@ export default function App({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
     </div>
   );
-  // return <TestComponent />;
 }
