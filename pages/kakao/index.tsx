@@ -7,7 +7,7 @@ export default function Kakao() {
   const KakaoLogout = () => {
     const kakao = kakaoInit();
 
-    console.log("kakao access token : ", kakao.Auth.getAccessToken());
+    console.log("2. kakao access token : ", kakao.Auth.getAccessToken());
     // kakao access token 확인
 
     kakao.API.request({
