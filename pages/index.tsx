@@ -74,7 +74,7 @@ const SigninBtn = styled(Button)`
   border: 1px solid black;
   width: 260px;
   height: 130px;
-  background-color: yellow;
+  background-color: pink;
   color: black;
   margin-top: 20px;
 `;
