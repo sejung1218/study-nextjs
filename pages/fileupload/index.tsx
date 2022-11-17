@@ -6,8 +6,11 @@ export default function FileUpload() {
   const [fileName, setFileName] = useState();
   const onDrop = useCallback((acceptedFiles: any) => {
     // Do something with the files
-    setFileName(acceptedFiles);
-    console.log(acceptedFiles);
+    setFileName(acceptedFiles[0].path);
+    console.log("acceptedFiles1 : ", acceptedFiles);
+    // console.log("acceptedFiles2 : ", acceptedFiles.File.path);
+    // console.log("acceptedFiles3 : ", acceptedFiles[0].path);
+    // console.log("acceptedFiles4 : ", acceptedFiles.File);
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
@@ -26,7 +29,7 @@ export default function FileUpload() {
           //   </FileUploadBtn>
         }
       </FileUploadContainer>
-      <Typography>{fileName}1</Typography>
+      <Typography>{fileName}</Typography>
     </Container>
   );
 }
