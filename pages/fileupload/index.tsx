@@ -4,6 +4,29 @@ import { useDropzone } from "react-dropzone";
 
 export default function FileUpload() {
   const [fileName, setFileName] = useState();
+
+  const pickerOpts = {
+    types: [
+      {
+        description: "Images",
+        accept: {
+          "image/*": [".png", ".gif", ".jpeg", ".jpg"],
+        },
+      },
+    ],
+    excludeAcceptAllOption: true,
+    multiple: false,
+  };
+
+  let fileHandle;
+
+  // async function getFile() {
+  //   // open file picker, destructure the one element returned array
+  //   [fileHandle] = await window.showOpenFilePicker(pickerOpts);
+
+  //   // run code with our fileHandle
+  // }
+
   const onDrop = useCallback((acceptedFiles: any) => {
     // Do something with the files
     setFileName(acceptedFiles[0].path);
