@@ -2,40 +2,45 @@ import { Box, Button, Container, styled, Typography } from "@mui/material";
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
-export default function FileUpload() {
+export default function FileUpload1() {
   const [fileName, setFileName] = useState();
 
-  const pickerOpts = {
-    types: [
-      {
-        description: "Images",
-        accept: {
-          "image/*": [".png", ".gif", ".jpeg", ".jpg"],
-        },
-      },
-    ],
-    excludeAcceptAllOption: true,
-    multiple: false,
-  };
-
-  let fileHandle;
-
-  // async function getFile() {
-  //   // open file picker, destructure the one element returned array
-  //   [fileHandle] = await window.showOpenFilePicker(pickerOpts);
-
-  //   // run code with our fileHandle
-  // }
-
   const onDrop = useCallback((acceptedFiles: any) => {
-    // Do something with the files
     setFileName(acceptedFiles[0].path);
     console.log("acceptedFiles1 : ", acceptedFiles);
-    // console.log("acceptedFiles2 : ", acceptedFiles.File.path);
-    // console.log("acceptedFiles3 : ", acceptedFiles[0].path);
-    // console.log("acceptedFiles4 : ", acceptedFiles.File);
   }, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
+  const {
+    acceptedFiles,
+    fileRejections,
+    getRootProps,
+    getInputProps,
+    isDragActive,
+  } = useDropzone({
+    onDrop,
+    accept: {
+      "image/jpeg": [],
+      "image/png": [],
+      "application/pdf": [],
+    },
+  });
+
+  // const acceptedFileItems = acceptedFiles.map((file) => (
+  //   <li key={file.path}>
+  //     {file.path} - {file.size} bytes
+  //   </li>
+  // ));
+
+  // const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+  //   <li key={file.path}>
+  //     {file.path} - {file.size} bytes
+  //     <ul>
+  //       {errors.map((e) => (
+  //         <li key={e.code}>{e.message}</li>
+  //       ))}
+  //     </ul>
+  //   </li>
+  // ));
 
   return (
     <Container>
@@ -53,6 +58,10 @@ export default function FileUpload() {
         }
       </FileUploadContainer>
       <Typography>{fileName}</Typography>
+      {/* <h4>Accepted files</h4>
+      <ul>{acceptedFileItems}</ul>
+      <h4>Rejected files</h4>
+      <ul>{fileRejectionItems}</ul> */}
     </Container>
   );
 }
