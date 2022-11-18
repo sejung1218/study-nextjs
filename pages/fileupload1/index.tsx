@@ -25,22 +25,22 @@ export default function FileUpload1() {
     },
   });
 
-  // const acceptedFileItems = acceptedFiles.map((file) => (
-  //   <li key={file.path}>
-  //     {file.path} - {file.size} bytes
-  //   </li>
-  // ));
+  const acceptedFileItems = acceptedFiles.map((file) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+    </li>
+  ));
 
-  // const fileRejectionItems = fileRejections.map(({ file, errors }) => (
-  //   <li key={file.path}>
-  //     {file.path} - {file.size} bytes
-  //     <ul>
-  //       {errors.map((e) => (
-  //         <li key={e.code}>{e.message}</li>
-  //       ))}
-  //     </ul>
-  //   </li>
-  // ));
+  const fileRejectionItems = fileRejections.map(({ file, errors }) => (
+    <li key={file.path}>
+      {file.path} - {file.size} bytes
+      <ul>
+        {errors.map((e) => (
+          <li key={e.code}>{e.message}</li>
+        ))}
+      </ul>
+    </li>
+  ));
 
   return (
     <Container>
@@ -58,10 +58,10 @@ export default function FileUpload1() {
         }
       </FileUploadContainer>
       <Typography>{fileName}</Typography>
-      {/* <h4>Accepted files</h4>
+      <h4>Accepted files</h4>
       <ul>{acceptedFileItems}</ul>
       <h4>Rejected files</h4>
-      <ul>{fileRejectionItems}</ul> */}
+      <ul>{fileRejectionItems}</ul>
     </Container>
   );
 }
