@@ -19,7 +19,6 @@ export default function FileUpload1() {
   } = useDropzone({
     onDrop,
     accept: {
-      "image/gif": [],
       "image/jpeg": [],
       "image/png": [],
       "application/pdf": [],
