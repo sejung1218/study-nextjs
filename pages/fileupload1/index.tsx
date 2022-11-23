@@ -1,9 +1,10 @@
 import { Box, Button, Container, styled, Typography } from "@mui/material";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDropzone } from "react-dropzone";
 
 export default function FileUpload1() {
   const [fileName, setFileName] = useState();
+  const [file, setFile] = useState<File[]>();
 
   const onDrop = useCallback((acceptedFiles: any) => {
     setFileName(acceptedFiles[0].path);
@@ -24,6 +25,11 @@ export default function FileUpload1() {
       "application/pdf": [],
     },
   });
+
+  useEffect(() => {
+    setFile(acceptedFiles);
+    console.log("file : ", file);
+  }, [file, acceptedFiles]);
 
   const acceptedFileItems = acceptedFiles.map((file) => (
     <li key={file.name}>
