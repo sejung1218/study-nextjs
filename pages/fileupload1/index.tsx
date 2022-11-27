@@ -21,10 +21,12 @@ export default function FileUpload1() {
     isDragActive,
   } = useDropzone({
     onDrop,
+    // txt형식 안됨...
     accept: {
       "image/jpeg": [],
       "image/png": [],
       "application/pdf": [],
+      "text/txt": [],
     },
   });
 
